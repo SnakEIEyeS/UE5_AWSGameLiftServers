@@ -1,0 +1,13 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "Data/API/APIData.h"
+
+#include "NativeGameplayTags.h"
+#include "GameplayTags/DedicatedServersTags.h"
+
+FString UAPIData::GetAPIEndPoint(const FGameplayTag& APIEndpoint)
+{
+	const FString ResourceName = Resources.FindChecked(APIEndpoint);
+	return InvokeURL + "/" + Stage + "/" + ResourceName;
+}
